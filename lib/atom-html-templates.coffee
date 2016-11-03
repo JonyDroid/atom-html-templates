@@ -13,6 +13,10 @@ module.exports = AtomHtmlTemplates =
          @defaultTitle = '<title>TITLE</title>'
          @defaultDescription = '<meta name="description" content="DESCRIPTION">'
          @defaultLanguage = 'en'
+         @defaultViewport = '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
+         @defaultJs = '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>'
+         @defaultScript = '<script src="PATH"></script>'
+
         # @modalPanel = atom.workspace.addModalPanel(item: @atomHtmlTemplatesView.getElement(), visible: false)
 
         # Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
@@ -66,6 +70,7 @@ module.exports = AtomHtmlTemplates =
 
                                 <head>
                                      #{@defaultCharset}
+                                     #{@defaultViewport}
                                      #{@defaultTitle}
                                      #{@defaultDescription}
                                     #{@defaultStyles}
@@ -77,6 +82,8 @@ module.exports = AtomHtmlTemplates =
 
                                  <body>
                                  #{@returnAdd(@additionalJs)}
+                                 #{@defaultJs}
+                                 #{@defaultScript}
                                  </body>
 
                                  </html>
